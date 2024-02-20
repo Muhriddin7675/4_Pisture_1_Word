@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">4 Picture 1 Word</string>
+    <string name="menu">Menu</string>
+    <string name="find_word">Find Word</string>
+    <string name="score_0">Score: 0</string>
+    <string name="_1">1</string>
+    <string name="play">Play</string>
+    <string name="restart">Restart</string>
+    <string name="exit">Exit</string>
+    <string name="game_ended">Game Ended</string>
+    <string name="score">0</string>
+    <string name="money_0">0</string>
+    <string name="next">Next</string>
+    <string name="_4_picture_1_word">4 Picture 1 Word</string>
+    <string name="version_1_0_0">version.1.0.0</string>
+    <string name="finish_game">Finish Game</string>
+</resources>

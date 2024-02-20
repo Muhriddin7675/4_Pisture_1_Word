@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.example.presentation.Finish">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:cardCornerRadius="18dp"
+        android:layout_marginTop="120dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/word"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/my_font2"
+        android:padding="25dp"
+        android:text="@string/finish_game"
+        android:textColor="@color/black"
+        android:textSize="36sp" />
+
+    <Space
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/menu"
+            android:background="@drawable/simple_button"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:padding="16dp"
+            android:src="@drawable/ic_ecxit"
+            android:layout_marginBottom="150dp"
+            android:textColor="#fff"
+            app:tint="#fff" />
+    </LinearLayout>
+
+</LinearLayout>
