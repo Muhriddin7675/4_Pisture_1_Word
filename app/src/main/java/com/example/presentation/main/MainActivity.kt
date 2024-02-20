@@ -3,19 +3,24 @@ package com.example.presentation.main
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.service.autofill.CustomDescription
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AlertDialogLayout
 import com.example.findwordkotlin.R
 import com.example.presentation.Finish
 import com.example.presentation.dialog.MyDialog
 import com.example.presentation.dialog.SelectListener
 
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity(), MainContract.View {
     private var money: TextView? = null
     private var images: MutableList<ImageView>? = null
@@ -33,13 +38,22 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         presenter = MainPresenter(this) as MainContract.Presenter
         presenter!!.setQuestion(s)
     }
-
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        AlertDialog.Builder(this,R.style.CustomAlertDialog)
+            .setMessage("Are you sure you want to exit?")
+            .setPositiveButton("Yes") { _, _ ->
+                super.onBackPressed()
+            }
+            .setNegativeButton("No", null)
+            .show()
+    }
     private fun initialize() {
         money = findViewById(R.id.money)
         level = findViewById(R.id.level)
         backButton = findViewById(R.id.back)
         resetButton = findViewById(R.id.restart)
-        backButton!!.setOnClickListener(View.OnClickListener { v: View? -> presenter!!.menu() })
+        backButton!!.setOnClickListener(View.OnClickListener { v: View? -> presenter?.menu() })
         resetButton!!.setOnClickListener(View.OnClickListener { v: View? -> presenter!!.restart() })
         images = ArrayList()
         images!!.add(findViewById(R.id.imgQuestion1))
@@ -145,7 +159,13 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun exit() {
-        finish()
+        AlertDialog.Builder(this,R.style.CustomAlertDialog)
+            .setMessage("Are you sure you want to exit?")
+            .setPositiveButton("Yes") { _, _ ->
+                super.onBackPressed()
+            }
+            .setNegativeButton("No", null)
+            .show()
     }
 
     override fun onStop() {

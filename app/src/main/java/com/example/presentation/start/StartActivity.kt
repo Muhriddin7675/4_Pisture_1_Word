@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
@@ -25,6 +26,25 @@ class StartActivity : AppCompatActivity(), StartContract.View {
         setContentView(R.layout.activity_start)
         presenter = StartPresenter(this)
         initialize()
+
+        val calbeck = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                AlertDialog.Builder(this@StartActivity, R.style.CustomAlertDialog).apply {
+                    setMessage("Do you want to exit the game? :(")
+                        .setTitle("Exit?")
+                        .setPositiveButton(
+                            "Yes"
+                        ) { dialog: DialogInterface?, which: Int -> finish() }
+                        .setNegativeButton(
+                            "No"
+                        ) { dialog: DialogInterface?, which: Int -> }
+                        .create().show()
+                }
+
+            }
+
+        }
+        onBackPressedDispatcher.addCallback(this, calbeck)
     }
 
     private fun initialize() {
@@ -50,18 +70,17 @@ class StartActivity : AppCompatActivity(), StartContract.View {
     }
 
     override fun exit() {
-        AlertDialog.Builder(this,R.style.CustomAlertDialog).apply {
+        AlertDialog.Builder(this, R.style.CustomAlertDialog).apply {
             setMessage("Do you want to exit the game? :(")
                 .setTitle("Exit?")
                 .setPositiveButton(
-                "Yes"
-            ) { dialog: DialogInterface?, which: Int -> finish() }
-            .setNegativeButton(
-                "No"
-            ) { dialog: DialogInterface?, which: Int -> }
-            .create().show()
+                    "Yes"
+                ) { dialog: DialogInterface?, which: Int -> finish() }
+                .setNegativeButton(
+                    "No"
+                ) { dialog: DialogInterface?, which: Int -> }
+                .create().show()
         }
-
     }
 
     @SuppressLint("SetTextI18n")

@@ -1,6 +1,7 @@
 package com.example.presentation.main
 
 import android.content.Context
+import android.util.Log
 import com.example.data.model.QuestionData
 
 class MainPresenter(view: MainContract.View) : MainContract.Presenter {
@@ -98,6 +99,7 @@ class MainPresenter(view: MainContract.View) : MainContract.Presenter {
     }
 
     override fun menu() {
+        Log.d("TTT", "exit: menu ")
         view!!.exit()
     }
 
