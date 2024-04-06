@@ -5,11 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/app_bg"
     tools:context="com.example.presentation.main.MainActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="32dp"
+            android:layout_height="28dp"
+            android:background ="?android:selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="24dp"
+            app:tint="@color/color_back_btn" />
 
         <TextView
             android:id="@+id/level"
@@ -37,7 +47,6 @@
             android:layout_gravity="end|center"
             android:layout_marginEnd="50dp"
             android:fontFamily="@font/my_font2"
-            android:text="@string/score"
             android:textColor="@color/textColor"
             android:textSize="20sp" />
 
@@ -222,24 +231,12 @@
             android:gravity="center">
 
             <ImageView
-                android:id="@+id/back"
-                android:layout_width="70dp"
-                android:layout_height="45dp"
-                android:background="@drawable/bg_back"
-                android:padding="8dp"
-                android:src="@drawable/ic_back"
-              />
-
-            <Space
-                android:layout_width="60dp"
-                android:layout_height="wrap_content" />
-
-            <ImageView
                 android:id="@+id/restart"
-                style="@style/Button.Answer"
                 android:layout_width="70dp"
                 android:layout_height="45dp"
                 android:padding="4dp"
+                android:background="@drawable/bg_back"
+                android:backgroundTint="@color/color_back_btn"
                 android:src="@drawable/ic_delete"
                 app:tint="#fff" />
         </LinearLayout>

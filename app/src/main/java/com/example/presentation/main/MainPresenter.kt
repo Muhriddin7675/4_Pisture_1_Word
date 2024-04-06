@@ -64,14 +64,14 @@ class MainPresenter(view: MainContract.View) : MainContract.Presenter {
         val correctAnswer: String = questionData!!.answer
 
         if (userAnswers.toString() != correctAnswer) {
-            view!!.showResult(" Your $userAnswers answer is wrong! :(")
+            view!!.showResult(" Your $userAnswers answer is wrong -5 coin :( !")
             if(money > 0){
                 money -= 5
             }
             view!!.setMoney(money)
             return
         }
-        money += 10
+        money += 15
         saveMoney()
         view!!.setMoney(money)
         model!!.setLevel(level + 1)
@@ -111,7 +111,7 @@ class MainPresenter(view: MainContract.View) : MainContract.Presenter {
             level = 0
             model!!.setLevel(level)
         }
-        if (level > 19) {
+        if (level > 22) {
             model!!.setLevel(0)
             view!!.startFinish()
             return

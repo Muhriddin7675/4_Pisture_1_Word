@@ -164,7 +164,9 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             .setPositiveButton("Yes") { _, _ ->
                 super.onBackPressed()
             }
-            .setNegativeButton("No", null)
+            .setNegativeButton("No"){_,_->
+                presenter!!.nextLevel()
+            }
             .show()
     }
 

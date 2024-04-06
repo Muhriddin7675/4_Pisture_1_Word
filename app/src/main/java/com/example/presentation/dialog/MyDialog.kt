@@ -36,4 +36,13 @@ class MyDialog : DialogFragment() {
     fun setSelectListener(listener: SelectListener?) {
         this.listener = listener
     }
+
+    override fun onStart() {
+        super.onStart()
+        val width = resources.displayMetrics.widthPixels * 0.9    // 90% of screen width
+        val height = ViewGroup.LayoutParams.WRAP_CONTENT         // Automatic height
+        dialog?.window?.setLayout(width.toInt(), height)
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog?.setCanceledOnTouchOutside(false)
+    }
 }

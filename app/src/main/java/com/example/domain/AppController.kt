@@ -164,12 +164,12 @@ class AppController private constructor(context: Context) {
             )
 
             14 -> QuestionData(
-                "crocodile",
-                "hopcidrebolc",
-                R.drawable.lv_crocodile_1,
-                R.drawable.lv_crocodile_2,
-                R.drawable.lv_crocodile_3,
-                R.drawable.lv_crocodile_4
+                "turtle",
+                "hrptidretolu",
+                R.drawable.lv_turtle_1,
+                R.drawable.lv_turtle_2,
+                R.drawable.lv_turtle_3,
+                R.drawable.lv_turtle_4
             )
 
             15 -> QuestionData(
@@ -216,49 +216,39 @@ class AppController private constructor(context: Context) {
                 R.drawable.lv_owl_3,
                 R.drawable.lv_owl_4
             )
+            20 -> QuestionData(
+                "eagle",
+                "eogdidrebaln",
+                R.drawable.lv_eagle_4,
+                R.drawable.lv_eagle_2,
+                R.drawable.lv_eagle_3,
+                R.drawable.lv_eagle_4
+            )
+            21 -> QuestionData(
+                "octopus",
+                "coptsucebolp",
+                R.drawable.lv_octopus_1,
+                R.drawable.lv_octopus_2,
+                R.drawable.lv_octopus_3,
+                R.drawable.lv_octopus_4
+            )
+            22 -> QuestionData(
+                "snake",
+                "hspdikaeboln",
+                R.drawable.lv_snake_1,
+                R.drawable.lv_snake_2,
+                R.drawable.lv_snake_3,
+                R.drawable.lv_snake_4
+            )
 
-//            20 -> QuestionData(
-//                "turtle",
-//                "hrptidretolu",
-//                R.drawable.lv_turtle_1,
-//                R.drawable.lv_turtle_2,
-//                R.drawable.lv_turtle_3,
-//                R.drawable.lv_turtle_4
-//            )
-
-//            21 -> QuestionData(
-//                "eagle",
-//                "eogdidreboln",
-//                R.drawable.lv_eagle_1,
-//                R.drawable.lv_eagle_2,
-//                R.drawable.lv_eagle_3,
-//                R.drawable.lv_eagle_4
-//            )
-//            22 -> QuestionData(
-//                "octopus",
-//                "hopdidreboln",
-//                R.drawable.lv_octopus_1,
-//                R.drawable.lv_octopus_2,
-//                R.drawable.lv_octopus_3,
-//                R.drawable.lv_octopus_4
-//            )
-//            22 -> QuestionData(
-//                "snake",
-//                "hspdikaeboln",
-//                R.drawable.lv_snake_1,
-//                R.drawable.lv_snake_2,
-//                R.drawable.lv_snake_3,
-//                R.drawable.lv_snake_4
-//            )
-
-//            23 -> QuestionData(
-//                "butterfly",
-//                "tfpdtdrebylu",
-//                R.drawable.lv_butterfly_1,
-//                R.drawable.lv_butterfly_2,
-//                R.drawable.lv_butterfly_3,
-//                R.drawable.lv_butterfly_4
-//            )
+            23 -> QuestionData(
+                "butterfly",
+                "tfpdtdrebylu",
+                R.drawable.lv_butterfly_1,
+                R.drawable.lv_butterfly_2,
+                R.drawable.lv_butterfly_3,
+                R.drawable.lv_butterfly_4
+            )
 
 
             else -> null

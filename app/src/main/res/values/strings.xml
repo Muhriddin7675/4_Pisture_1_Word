@@ -1,17 +1,49 @@
 <resources>
-    <string name="app_name">4 Picture 1 Word</string>
-    <string name="menu">Menu</string>
-    <string name="find_word">Find Word</string>
-    <string name="score_0">Score: 0</string>
-    <string name="_1">1</string>
-    <string name="play">Play</string>
-    <string name="restart">Restart</string>
+    <string name="app_name" translatable="false">4 Picture 1 Word</string>
+    <string name="menu" translatable="false">Menu</string>
+    <string name="find_word" translatable="false">Find Word</string>
+    <string name="score_0" translatable="false">Score: 0</string>
+    <string name="_1" translatable="false">1</string>
+    <string name="play" translatable="false">Play</string>
+    <string name="restart" translatable="false">Restart</string>
     <string name="exit">Exit</string>
     <string name="game_ended">Game Ended</string>
-    <string name="score">0</string>
-    <string name="money_0">0</string>
     <string name="next">Next</string>
     <string name="_4_picture_1_word">4 Picture 1 Word</string>
     <string name="version_1_0_0">version.1.0.0</string>
-    <string name="finish_game">Finish Game</string>
+    <string name="_15_conis">+15 conis</string>
+    <string name="correct_answer">Correct Answer</string>
+    <string name="finish_game2">Finish Game</string>
+    <string name="app_info">"4 Pics 1 Word" is a popular puzzle game where players are presented with four images and must find the word that connects them all. Here\'s how the game typically works:
+
+Gameplay Overview:
+
+Players are shown four images on the screen, which may depict objects, places, animals, or concepts.
+These images are usually unrelated at first glance but share a common characteristic, theme, or concept.
+Beneath the images, there are blank spaces indicating the number of letters in the word that connects the images.
+Players must think critically and analyze the images to identify the common word.
+Objective:
+
+The objective of the game is to guess the word that links the four images correctly.
+Players type their answer into a provided space or select letters from a set of options.
+If the guess is correct, players move on to the next level. If incorrect, they can try again or use in-game hints.
+Challenges and Strategies:
+
+The game becomes progressively more challenging as players advance through levels, with the images becoming more abstract or ambiguous.
+Players may encounter homonyms, synonyms, or words with multiple meanings, adding complexity to the puzzle.
+Strategies for success include careful observation, lateral thinking, and considering alternative interpretations of the images.
+Hints and Assistance:
+
+Players may receive hints or assistance when they\'re stuck. This could include revealing a letter in the word, removing incorrect letters from the options, or skipping the puzzle altogether.
+Some versions of the game offer in-app purchases for additional hints or solutions.
+Variations and Adaptations:
+
+"4 Pics 1 Word" has spawned numerous variations and adaptations, including language-specific versions, themed editions, and spin-off games with similar mechanics.
+Popularity and Reception:
+
+The game has gained widespread popularity across various platforms, including mobile devices, social media, and online gaming websites.
+Its addictive gameplay, simplicity, and accessibility have contributed to its success and enduring appeal among players of all ages.
+Overall, "4 Pics 1 Word" offers a fun and engaging puzzle experience that challenges players to think creatively and make connections between seemingly unrelated images. It\'s a game that tests both logic and imagination, making it a favorite among puzzle enthusiasts worldwide.</string>
+    <string name="information">Information</string>
+    <string name="you_win_the_game">You Win The Game</string>
 </resources>
