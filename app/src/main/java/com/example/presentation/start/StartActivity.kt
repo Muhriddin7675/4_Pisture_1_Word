@@ -12,6 +12,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.example.findwordkotlin.R
+import com.example.presentation.dialog.ExitDialog
+import com.example.presentation.dialog.ExitListener
 import com.example.presentation.info.InfoActivity
 import com.example.presentation.main.MainActivity
 
@@ -32,20 +34,8 @@ class StartActivity : AppCompatActivity(), StartContract.View {
 
         val calbeck = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                AlertDialog.Builder(this@StartActivity, R.style.CustomAlertDialog).apply {
-                    setMessage("Do you want to exit the game? :(")
-                        .setTitle("Exit?")
-                        .setPositiveButton(
-                            "Yes"
-                        ) { dialog: DialogInterface?, which: Int -> finish() }
-                        .setNegativeButton(
-                            "No"
-                        ) { dialog: DialogInterface?, which: Int -> }
-                        .create().show()
-                }
-
+                presenter!!.exit()
             }
-
         }
         onBackPressedDispatcher.addCallback(this, calbeck)
     }
@@ -78,17 +68,16 @@ class StartActivity : AppCompatActivity(), StartContract.View {
     }
 
     override fun exit() {
-        AlertDialog.Builder(this, R.style.CustomAlertDialog).apply {
-            setMessage("Do you want to exit the game? :(")
-                .setTitle("Exit?")
-                .setPositiveButton(
-                    "Yes"
-                ) { dialog: DialogInterface?, which: Int -> finish() }
-                .setNegativeButton(
-                    "No"
-                ) { dialog: DialogInterface?, which: Int -> }
-                .create().show()
-        }
+        val dialog = ExitDialog("Do you want to exit the game :(")
+        dialog.setExitListener(object : ExitListener {
+            override fun yes() {
+                finish()
+            }
+
+            override fun no() {
+            }
+        })
+        dialog.show(supportFragmentManager, "exit dialog")
     }
 
     @SuppressLint("SetTextI18n")

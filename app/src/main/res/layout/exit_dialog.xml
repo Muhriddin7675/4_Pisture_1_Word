@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-
     <View
         android:id="@+id/dialog_view"
         android:layout_width="match_parent"
@@ -16,51 +15,46 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:src="@drawable/icon_question"
+        app:layout_constraintBottom_toTopOf="@id/dialog_view"
+        app:layout_constraintEnd_toEndOf="@id/dialog_view"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@id/dialog_view"
+        app:layout_constraintTop_toTopOf="@id/dialog_view" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/my_font2"
+        android:text="@string/exit"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/messageText"
+        app:layout_constraintEnd_toEndOf="@id/dialog_view"
+        app:layout_constraintStart_toStartOf="@+id/messageText"
+        app:layout_constraintTop_toTopOf="@id/dialog_view"
+        app:layout_constraintVertical_bias="0.6"
+        app:layout_constraintHorizontal_bias="0"
+        />
+
+    <TextView
+        android:id="@+id/messageText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
-        android:src="@drawable/ic_win"
-        app:layout_constraintBottom_toTopOf="@id/dialog_view"
-        app:layout_constraintTop_toTopOf="@id/dialog_view"
-        tools:layout_editor_absoluteX="48dp" />
-
-    <TextView
-        android:id="@+id/text_coin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:fontFamily="@font/my_font2"
-        android:text="@string/_15_conis"
+        android:text="Are you sure you want to exit "
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@id/dialog_view"
-        app:layout_constraintEnd_toEndOf="@id/dialog_view"
-        app:layout_constraintHorizontal_bias="0.53"
-        app:layout_constraintStart_toStartOf="@id/dialog_view"
-        app:layout_constraintTop_toTopOf="@id/dialog_view"
-        app:layout_constraintVertical_bias="0.6" />
-
-    <ImageView
-        android:id="@+id/coin"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="4dp"
-        android:src="@drawable/ic_money"
-        app:layout_constraintBottom_toBottomOf="@id/text_coin"
-        app:layout_constraintEnd_toStartOf="@id/text_coin"
-        app:layout_constraintTop_toTopOf="@id/text_coin" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/my_font2"
-        android:text="@string/correct_answer"
-        android:textColor="@color/white"
-        android:textSize="32sp"
+        android:gravity="center"
+        android:justificationMode="inter_word"
         app:layout_constraintBottom_toBottomOf="@id/dialog_view"
         app:layout_constraintEnd_toEndOf="@id/dialog_view"
         app:layout_constraintStart_toStartOf="@id/dialog_view"
         app:layout_constraintTop_toTopOf="@id/dialog_view"
-        app:layout_constraintVertical_bias="0.35" />
+        tools:ignore="UnusedAttribute" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -75,12 +69,12 @@
         app:layout_constraintStart_toStartOf="@id/dialog_view">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/menuButton"
+            android:id="@+id/noButton"
             style="@style/Button.Answer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/menu"
+            android:text="@string/no"
             android:textAllCaps="false" />
 
         <Space
@@ -88,26 +82,12 @@
             android:layout_height="wrap_content" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/nextButton"
+            android:id="@+id/yesButton"
             style="@style/Button.Variant"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/next"
+            android:text="@string/yes"
             android:textAllCaps="false" />
-
     </LinearLayout>
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/coinLottieAnimation"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@id/dialog_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/dialog_view"
-        app:layout_constraintTop_toTopOf="parent"
-        app:lottie_fileName="joincoin.json"
-        app:lottie_loop="true"
-        tools:ignore="MissingClass,MissingConstraints" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -219,7 +219,7 @@ class AppController private constructor(context: Context) {
             20 -> QuestionData(
                 "eagle",
                 "eogdidrebaln",
-                R.drawable.lv_eagle_4,
+                R.drawable.lv_eagle_1,
                 R.drawable.lv_eagle_2,
                 R.drawable.lv_eagle_3,
                 R.drawable.lv_eagle_4
@@ -239,15 +239,6 @@ class AppController private constructor(context: Context) {
                 R.drawable.lv_snake_2,
                 R.drawable.lv_snake_3,
                 R.drawable.lv_snake_4
-            )
-
-            23 -> QuestionData(
-                "butterfly",
-                "tfpdtdrebylu",
-                R.drawable.lv_butterfly_1,
-                R.drawable.lv_butterfly_2,
-                R.drawable.lv_butterfly_3,
-                R.drawable.lv_butterfly_4
             )
 
 

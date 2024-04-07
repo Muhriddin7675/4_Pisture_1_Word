@@ -11,7 +11,7 @@
     <string name="next">Next</string>
     <string name="_4_picture_1_word">4 Picture 1 Word</string>
     <string name="version_1_0_0">version.1.0.0</string>
-    <string name="_15_conis">+15 conis</string>
+    <string name="_15_conis">+25 coins</string>
     <string name="correct_answer">Correct Answer</string>
     <string name="finish_game2">Finish Game</string>
     <string name="app_info">"4 Pics 1 Word" is a popular puzzle game where players are presented with four images and must find the word that connects them all. Here\'s how the game typically works:
@@ -46,4 +46,6 @@ Its addictive gameplay, simplicity, and accessibility have contributed to its su
 Overall, "4 Pics 1 Word" offers a fun and engaging puzzle experience that challenges players to think creatively and make connections between seemingly unrelated images. It\'s a game that tests both logic and imagination, making it a favorite among puzzle enthusiasts worldwide.</string>
     <string name="information">Information</string>
     <string name="you_win_the_game">You Win The Game</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
 </resources>

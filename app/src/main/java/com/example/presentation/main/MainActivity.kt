@@ -2,6 +2,7 @@ package com.example.presentation.main
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.service.autofill.CustomDescription
 import android.util.Log
@@ -11,11 +12,15 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AlertDialogLayout
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.findwordkotlin.R
 import com.example.presentation.Finish
+import com.example.presentation.dialog.ExitDialog
+import com.example.presentation.dialog.ExitListener
 import com.example.presentation.dialog.MyDialog
 import com.example.presentation.dialog.SelectListener
 
@@ -30,30 +35,32 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     private var presenter: MainContract.Presenter? = null
     private var backButton: ImageView? = null
     private var resetButton: ImageView? = null
+    private lateinit var helpButton: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initialize()
-        val s = intent.getBooleanExtra("game",false)
+        clickHelpButton()
+        val s = intent.getBooleanExtra("game", false)
         presenter = MainPresenter(this) as MainContract.Presenter
         presenter!!.setQuestion(s)
-    }
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
-        AlertDialog.Builder(this,R.style.CustomAlertDialog)
-            .setMessage("Are you sure you want to exit?")
-            .setPositiveButton("Yes") { _, _ ->
-                super.onBackPressed()
+
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                presenter!!.showExitDialog()
             }
-            .setNegativeButton("No", null)
-            .show()
+        }
+        this.onBackPressedDispatcher.addCallback(callback)
     }
+
+
     private fun initialize() {
         money = findViewById(R.id.money)
         level = findViewById(R.id.level)
         backButton = findViewById(R.id.back)
         resetButton = findViewById(R.id.restart)
-        backButton!!.setOnClickListener(View.OnClickListener { v: View? -> presenter?.menu() })
+        helpButton = findViewById(R.id.help)
+        backButton!!.setOnClickListener(View.OnClickListener { v: View? -> presenter!!.showExitDialog() })
         resetButton!!.setOnClickListener(View.OnClickListener { v: View? -> presenter!!.restart() })
         images = ArrayList()
         images!!.add(findViewById(R.id.imgQuestion1))
@@ -69,11 +76,20 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         variants.addAll(findButtons(
             R.id.linerVariant2, variants.size
         ) { view: View -> clickVariant(view) })
+
+
+    }
+
+    private fun clickHelpButton() {
+        helpButton.setOnClickListener {
+            presenter!!.clickHelp()
+        }
     }
 
     private fun clickAnswer(view: View) {
         presenter!!.clickAnswer((view.tag as Int))
     }
+
     private fun clickVariant(view: View) {
         presenter!!.clickVariant((view.tag as Int))
     }
@@ -109,6 +125,18 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         dialog.show(supportFragmentManager, "test")
     }
 
+    override fun showExitDialog() {
+        val dialog = ExitDialog("Are you sure you want to exit")
+        dialog.setExitListener(object : ExitListener {
+            override fun yes() {
+                finish()
+            }
+            override fun no() {
+            }
+        })
+        dialog.show(supportFragmentManager,"exit dialog")
+    }
+
     override fun setImages(images: List<Int>) {
         for (i in images.indices) {
             this.images!![i].setImageResource(images[i])
@@ -125,10 +153,12 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun setLevel(level: Int) {
         this.level!!.text = level.toString()
     }
+
     @SuppressLint("SetTextI18n")
     override fun setMoney(money: Int) {
         this.money!!.text = money.toString()
     }
+
     override fun setVariants(variants: String) {
         for (i in this.variants.indices) {
             this.variants[i].visibility = View.VISIBLE
@@ -159,15 +189,8 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun exit() {
-        AlertDialog.Builder(this,R.style.CustomAlertDialog)
-            .setMessage("Are you sure you want to exit?")
-            .setPositiveButton("Yes") { _, _ ->
-                super.onBackPressed()
-            }
-            .setNegativeButton("No"){_,_->
-                presenter!!.nextLevel()
-            }
-            .show()
+        finish()
+        presenter!!.nextLevel()
     }
 
     override fun onStop() {
@@ -180,5 +203,18 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         startActivity(intent)
         finish()
     }
+
+    override fun setAnswersTextColor(color: Int) {
+        answers.forEach {
+            it.setTextColor(color)
+        }
+    }
+
+    override fun setAnswerText(id: Int, letter: String) {
+        answers[id].hint = letter
+        answers[id].setHintTextColor(Color.YELLOW)
+    }
+
+
 }
 

@@ -24,14 +24,6 @@
         <item name="android:background">@drawable/bg_variant</item>
     </style>
 
-    <style name="Button.Next">
-        <item name="android:background">@drawable/bg_next</item>
-    </style>
-
-    <style name="Button.Quit">
-        <item name="android:background">@drawable/bg_quit</item>
-    </style>
-
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

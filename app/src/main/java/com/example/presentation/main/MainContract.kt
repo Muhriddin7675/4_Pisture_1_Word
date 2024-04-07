@@ -18,6 +18,7 @@ interface MainContract {
     interface View {
         fun startFinish()
         fun showDialogNext()
+        fun showExitDialog()
         fun setImages(images: List<Int>)
         fun clearAnswer()
         fun setLevel(level: Int)
@@ -25,21 +26,25 @@ interface MainContract {
         fun setVisibleVariant(index: Int)
         fun setInvisibleVariant(index: Int)
         fun setAnswer(index: Int, answer: String?)
+        fun setAnswersTextColor(color: Int)
         fun deleteAnswer(index: Int)
         fun showResult(s: String?)
         fun exit()
         fun setMoney(money: Int)
+        fun setAnswerText(id: Int, letter: String)
     }
 
     interface Presenter {
         fun restart()
         fun nextLevel()
         fun menu()
+        fun showExitDialog()
         fun setQuestion(newOrLoad: Boolean)
         fun clickAnswer(index: Int)
         fun clickVariant(index: Int)
         fun check()
         fun saveMoney()
         fun load()
+        fun clickHelp()
     }
 }

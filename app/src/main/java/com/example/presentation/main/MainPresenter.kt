@@ -1,8 +1,11 @@
 package com.example.presentation.main
 
 import android.content.Context
+import android.graphics.Color
 import android.util.Log
 import com.example.data.model.QuestionData
+import com.example.findwordkotlin.R
+import java.util.Locale
 
 class MainPresenter(view: MainContract.View) : MainContract.Presenter {
     private var money = 0
@@ -12,6 +15,8 @@ class MainPresenter(view: MainContract.View) : MainContract.Presenter {
     private val variants: ArrayList<Boolean> = ArrayList()
     private var view: MainContract.View? = view
     private var model: MainContract.Model? = null
+    private var answerHelp = 0
+    private var answerHelpList = ArrayList<Int>()
 
     init {
         this.model = MainModel(view as Context)
@@ -24,7 +29,7 @@ class MainPresenter(view: MainContract.View) : MainContract.Presenter {
         }
         val questionData = model!!.getQuestionById(level)
         val variants: String = questionData!!.variants
-
+        view!!.setAnswersTextColor(Color.WHITE)
         for (i in 0 until variants.length) {
             val currentVariant = variants[i].toString()
             if (clickedAnswer == currentVariant && this.variants[i]) {
@@ -50,6 +55,7 @@ class MainPresenter(view: MainContract.View) : MainContract.Presenter {
         variants[index] = true
         freeIndex = answers.indexOf(null)
         if (freeIndex == -1) check()
+
     }
 
     override fun check() {
@@ -65,17 +71,19 @@ class MainPresenter(view: MainContract.View) : MainContract.Presenter {
 
         if (userAnswers.toString() != correctAnswer) {
             view!!.showResult(" Your $userAnswers answer is wrong -5 coin :( !")
-            if(money > 0){
+            if (money > 0) {
                 money -= 5
+                view!!.setAnswersTextColor(Color.RED)
             }
             view!!.setMoney(money)
             return
         }
-        money += 15
+        view!!.setAnswersTextColor(Color.GREEN)
+        view!!.showDialogNext()
+        money += 25
         saveMoney()
         view!!.setMoney(money)
         model!!.setLevel(level + 1)
-        view!!.showDialogNext()
     }
 
     override fun saveMoney() {
@@ -96,6 +104,9 @@ class MainPresenter(view: MainContract.View) : MainContract.Presenter {
         answers.clear()
         variants.clear()
         setQuestion(false)
+        answerHelp = 0
+        answerHelpList.clear()
+        view!!.setAnswersTextColor(Color.WHITE)
     }
 
     override fun menu() {
@@ -121,6 +132,7 @@ class MainPresenter(view: MainContract.View) : MainContract.Presenter {
         val question: QuestionData? = model!!.getQuestionById(level)
         view!!.clearAnswer()
         for (i in 0 until MAX_LENGTH) {
+            view!!.setAnswerText(i,"")
             if (question!!.answer.length <= i) {
                 view!!.deleteAnswer(i)
             } else {
@@ -133,5 +145,49 @@ class MainPresenter(view: MainContract.View) : MainContract.Presenter {
         for (i in 0 until question.variants.length) {
             variants.add(false)
         }
+    }
+
+    override fun clickHelp() {
+        val questionData = model!!.getQuestionById(level)
+        val variants: String = questionData!!.answer
+        val freeIndex = answers.indexOf(null)
+        var result = true
+        if(answerHelpList.isNotEmpty()){
+            answerHelpList.forEach { it ->
+                if (freeIndex == it) {
+                    result = false
+                }
+            }
+        }
+        if(result) {
+            if(money >= 20){
+                if (answerHelp < variants.length) {
+                    view!!.showResult(" -20 coins for getting help !")
+                    money -= 20
+                    saveMoney()
+                    view!!.setMoney(money)
+                    view!!.setAnswerText(
+                        freeIndex,
+                        variants[freeIndex].toString().toUpperCase(Locale.ROOT)
+                    )
+                    answerHelpList.add(freeIndex)
+                    answerHelp++
+                }
+            }
+            else{
+                view!!.showResult("Your coins are not enough!")
+            }
+        } else{
+            view!!.showResult("You can get help after filling in the correct option!")
+
+        }
+    }
+
+    override fun showExitDialog() {
+        view!!.showExitDialog()
+    }
+
+    fun myLog(msg: String) {
+        Log.d("TTT", msg)
     }
 }

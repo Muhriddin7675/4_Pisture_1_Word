@@ -3,50 +3,41 @@ package com.example.presentation.dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.DialogFragment
-import com.airbnb.lottie.LottieAnimationView
 import com.example.findwordkotlin.R
 
-
-class MyDialog : DialogFragment() {
-    var listener: SelectListener? = null
+class ExitDialog(msg: String) : DialogFragment() {
+    var listener: ExitListener? = null
+    var message = msg
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         this.dialog!!.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        return inflater.inflate(R.layout.win_dialog, container)
+        return inflater.inflate(R.layout.exit_dialog, container)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val animation = view.findViewById<LottieAnimationView>(R.id.coinLottieAnimation)
-        animation.playAnimation()
+        val messageText = view.findViewById<View>(R.id.messageText) as TextView
+        messageText.text = message
 
-        val delayMilliseconds: Long = 4500 // 5 sekund
-
-        val handler = Handler()
-        val runnable = Runnable {
-            animation.pauseAnimation()
-        }
-        handler.postDelayed(runnable, delayMilliseconds)
-
-        view.findViewById<View>(R.id.nextButton).setOnClickListener { v: View? ->
-            listener!!.next()
+        view.findViewById<View>(R.id.yesButton).setOnClickListener { v: View? ->
+            listener!!.yes()
             dismiss()
         }
-        view.findViewById<View>(R.id.menuButton).setOnClickListener { v: View? ->
-            listener!!.menu()
+        view.findViewById<View>(R.id.noButton).setOnClickListener { v: View? ->
+            listener!!.no()
             dismiss()
         }
     }
 
-    fun setSelectListener(listener: SelectListener?) {
+    fun setExitListener(listener: ExitListener?) {
         this.listener = listener
     }
 
