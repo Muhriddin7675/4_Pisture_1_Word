@@ -9,7 +9,6 @@
         android:id="@+id/dialog_view"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_marginHorizontal="4dp"
         android:background="@drawable/bg_dialog"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -17,7 +16,7 @@
     <ImageView
         android:layout_width="150dp"
         android:layout_height="200dp"
-        android:src="@drawable/icon_question"
+        android:src="@drawable/ic_question"
         app:layout_constraintBottom_toTopOf="@id/dialog_view"
         app:layout_constraintEnd_toEndOf="@id/dialog_view"
         app:layout_constraintHorizontal_bias="0.9"
@@ -70,11 +69,13 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/noButton"
-            style="@style/Button.Answer"
             android:layout_width="0dp"
+            android:background="@drawable/bg_no_btn"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/no"
+            android:textColor="@color/white"
+            android:fontFamily="@font/my_font2"
             android:textAllCaps="false" />
 
         <Space
@@ -83,11 +84,14 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/yesButton"
-            style="@style/Button.Variant"
             android:layout_width="0dp"
+            android:background="@drawable/bg_no_btn"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/yes"
+            android:textColor="@color/white"
+            android:backgroundTint="#EC1A1A"
+            android:fontFamily="@font/my_font2"
             android:textAllCaps="false" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

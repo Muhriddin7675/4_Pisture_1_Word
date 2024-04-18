@@ -1,6 +1,8 @@
 package com.example.presentation.start
 
 import android.content.Context
+import com.example.presentation.start.StartContract
+import com.example.presentation.start.StartModel
 
 class StartPresenter(private val view: StartContract.View) : StartContract.Presenter {
     private val model: StartContract.Model

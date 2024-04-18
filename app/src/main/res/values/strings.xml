@@ -48,4 +48,5 @@ Overall, "4 Pics 1 Word" offers a fun and engaging puzzle experience that challe
     <string name="you_win_the_game">You Win The Game</string>
     <string name="no">No</string>
     <string name="yes">Yes</string>
+    <string name="info">Info</string>
 </resources>

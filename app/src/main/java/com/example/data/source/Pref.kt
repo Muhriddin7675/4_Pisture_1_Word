@@ -1,4 +1,4 @@
-package com.example.findwordkotlin.data.source
+package com.example.data.source
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -23,7 +23,7 @@ class Pref private constructor(context: Context) {
     }
 
     fun saveMoney(money: Int) = pref.edit().putInt("MONEY", money).apply()
-    fun getMoney(): Int = pref.getInt("MONEY", 0)
+    fun getMoney(): Int = pref.getInt("MONEY", 100)
     @SuppressLint("CommitPrefEdits")
     fun saveAnswers(answers: List<String>) {
         var sb: StringBuilder = StringBuilder()

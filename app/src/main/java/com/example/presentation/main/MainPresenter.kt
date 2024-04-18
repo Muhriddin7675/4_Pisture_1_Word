@@ -4,12 +4,13 @@ import android.content.Context
 import android.graphics.Color
 import android.util.Log
 import com.example.data.model.QuestionData
-import com.example.findwordkotlin.R
+import com.example.presentation.dialog.HelpDialog
+import com.example.presentation.dialog.HelpListener
 import java.util.Locale
 
 class MainPresenter(view: MainContract.View) : MainContract.Presenter {
     private var money = 0
-    private val MAX_LENGTH: Int = 9
+    private val MAX_LENGTH: Int = 8
     private var level = 0
     private val answers: ArrayList<String?> = ArrayList()
     private val variants: ArrayList<Boolean> = ArrayList()
@@ -106,7 +107,7 @@ class MainPresenter(view: MainContract.View) : MainContract.Presenter {
         setQuestion(false)
         answerHelp = 0
         answerHelpList.clear()
-        view!!.setAnswersTextColor(Color.WHITE)
+        view!!.setAnswersTextColor(Color.parseColor("#FAED7A"))
     }
 
     override fun menu() {
@@ -117,12 +118,12 @@ class MainPresenter(view: MainContract.View) : MainContract.Presenter {
     override fun setQuestion(newOrLoad: Boolean) {
         level = model!!.getLevel()
         if (newOrLoad) {
-            money = 0;
+            money = 100;
             model!!.saveMoney(money)
             level = 0
             model!!.setLevel(level)
         }
-        if (level > 22) {
+        if (level > 12) {
             model!!.setLevel(0)
             view!!.startFinish()
             return
@@ -159,19 +160,10 @@ class MainPresenter(view: MainContract.View) : MainContract.Presenter {
                 }
             }
         }
-        if(result) {
+        if(result && freeIndex != -1) {
             if(money >= 20){
                 if (answerHelp < variants.length) {
-                    view!!.showResult(" -20 coins for getting help !")
-                    money -= 20
-                    saveMoney()
-                    view!!.setMoney(money)
-                    view!!.setAnswerText(
-                        freeIndex,
-                        variants[freeIndex].toString().toUpperCase(Locale.ROOT)
-                    )
-                    answerHelpList.add(freeIndex)
-                    answerHelp++
+                    view!!.showHelpDialog()
                 }
             }
             else{
@@ -187,6 +179,21 @@ class MainPresenter(view: MainContract.View) : MainContract.Presenter {
         view!!.showExitDialog()
     }
 
+    override fun clickHelpDialogYesButton() {
+        val questionData = model!!.getQuestionById(level)
+        val variants: String = questionData!!.answer
+        val freeIndex = answers.indexOf(null)
+        money -= 20
+        saveMoney()
+        view!!.setMoney(money)
+        view!!.setAnswerText(
+            freeIndex,
+            variants[freeIndex].toString().toUpperCase(Locale.ROOT)
+        )
+        answerHelpList.add(freeIndex)
+        answerHelp++
+
+    }
     fun myLog(msg: String) {
         Log.d("TTT", msg)
     }

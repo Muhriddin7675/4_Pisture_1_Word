@@ -3,6 +3,7 @@ package com.example.presentation.main
 import android.content.Context
 import com.example.data.model.QuestionData
 import com.example.domain.AppController
+import com.example.presentation.main.MainContract
 
 
 class MainModel(context: Context) : MainContract.Model {

@@ -12,14 +12,13 @@
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="57dp"
-        android:background="@color/app_bg"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/view_tire"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/status_bar_color"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="@id/view" />
 
     <ImageView
@@ -32,7 +31,7 @@
         app:layout_constraintBottom_toBottomOf="@id/view"
         app:layout_constraintStart_toStartOf="@id/view"
         app:layout_constraintTop_toTopOf="@id/view"
-        app:tint="@color/color_back_btn" />
+        app:tint="@color/white" />
 
     <ImageView
         android:id="@+id/dispatcher"
@@ -45,7 +44,7 @@
         app:layout_constraintBottom_toBottomOf="@id/view"
         app:layout_constraintEnd_toEndOf="@id/view"
         app:layout_constraintTop_toTopOf="@id/view"
-        app:tint="@color/color_back_btn" />
+        app:tint="@color/white" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,8 +52,7 @@
         android:fontFamily="@font/my_font2"
         android:gravity="center"
         android:text="@string/information"
-
-        android:textColor="@color/textColor"
+          android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@id/view"
         app:layout_constraintEnd_toEndOf="@id/view"
@@ -80,6 +78,7 @@
                 android:layout_marginHorizontal="12dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/bg_info"
+                android:backgroundTint="@color/app_bar_color"
                 android:fontFamily="@font/my_font2"
                 android:justificationMode="inter_word"
                 android:paddingHorizontal="16dp"

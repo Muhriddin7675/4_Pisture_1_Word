@@ -2,9 +2,10 @@ package com.example.presentation.start
 
 import android.content.Context
 import com.example.domain.AppController
+import com.example.presentation.start.StartContract
 
 
-class StartModel(context: Context) : StartContract.Model{
+class StartModel(context: Context) : StartContract.Model {
     private val appController: AppController
     init {
         appController = AppController.getInstance(context)

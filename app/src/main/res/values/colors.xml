@@ -5,7 +5,23 @@
     <color name="color_back_btn">#8E2606</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="textColor">#EFB010</color>
-    <color name="app_bg">#FEE9AD</color>
-    <color name="status_bar_color">#FDA421</color>
+    <color name="textColor">#DCE3B736</color>
+    <color name="app_bg">#0D1129</color>
+    <color name="status_bar_color">#FCEB5E</color>
+    <color name="strock_color">#E52021</color>
+    <color name="infoAppBackground">#21252F</color>
+    <color name="infoQuizBarColor1">#003966</color>
+    <color name="infoQuizBarColor2">#3F9CFB</color>
+    <color name="custom_color">#8816CFE6</color>
+    <color name="four_pick_back">#130A1F</color>
+    <color name="four_pick_backDark">#120820</color>
+    <color name="info_app_background_dark">#1A1D25</color>
+    <color name="fourpick_btn">#76C817</color>
+    <color name="correct">#00FF0A</color>
+    <color name="incorrect">#F44336</color>
+    <color name="transparent">#00000000</color>
+    <color name="red">#FB0303</color>
+    <color name="_0f0819">#0F0819</color>
+    <color name="app_bar_color">#0D1129</color>
+    <color name="naviagtion">#000C24</color>
 </resources>

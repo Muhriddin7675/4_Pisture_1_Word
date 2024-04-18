@@ -30,6 +30,7 @@ interface MainContract {
         fun deleteAnswer(index: Int)
         fun showResult(s: String?)
         fun exit()
+        fun showHelpDialog()
         fun setMoney(money: Int)
         fun setAnswerText(id: Int, letter: String)
     }
@@ -42,6 +43,7 @@ interface MainContract {
         fun setQuestion(newOrLoad: Boolean)
         fun clickAnswer(index: Int)
         fun clickVariant(index: Int)
+        fun clickHelpDialogYesButton()
         fun check()
         fun saveMoney()
         fun load()

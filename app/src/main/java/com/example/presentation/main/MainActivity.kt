@@ -4,8 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.service.autofill.CustomDescription
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -13,14 +11,13 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AlertDialogLayout
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.findwordkotlin.R
 import com.example.presentation.Finish
 import com.example.presentation.dialog.ExitDialog
 import com.example.presentation.dialog.ExitListener
+import com.example.presentation.dialog.HelpDialog
+import com.example.presentation.dialog.HelpListener
 import com.example.presentation.dialog.MyDialog
 import com.example.presentation.dialog.SelectListener
 
@@ -131,10 +128,11 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             override fun yes() {
                 finish()
             }
+
             override fun no() {
             }
         })
-        dialog.show(supportFragmentManager,"exit dialog")
+        dialog.show(supportFragmentManager, "exit dialog")
     }
 
     override fun setImages(images: List<Int>) {
@@ -213,6 +211,20 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun setAnswerText(id: Int, letter: String) {
         answers[id].hint = letter
         answers[id].setHintTextColor(Color.YELLOW)
+    }
+
+    override fun showHelpDialog() {
+        val helpDialog = HelpDialog()
+        helpDialog.setExitListener(object : HelpListener {
+            override fun yes() {
+                presenter!!.clickHelpDialogYesButton()
+            }
+
+            override fun no() {
+            }
+        })
+        helpDialog.show(supportFragmentManager,"help dialog")
+
     }
 
 

@@ -17,7 +17,8 @@
         android:src="@drawable/ic_starts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
 
     <ImageView
         android:id="@+id/cup"
@@ -37,7 +38,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/my_font2"
         android:text="@string/you_win_the_game"
-        android:textColor="#EFB010"
+        android:textColor="@color/white"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +66,7 @@
         android:id="@+id/menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/simple_button"
+        android:background="@drawable/bg_btn"
         android:fontFamily="@font/my_font2"
         android:padding="16dp"
         android:text="@string/finish_game2"

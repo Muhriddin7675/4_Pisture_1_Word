@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_bg"
+    android:background="@drawable/image_app"
     android:orientation="vertical"
     tools:context="com.example.presentation.main.MainActivity">
 
@@ -20,7 +20,7 @@
             android:layout_marginStart="24dp"
             android:background="?android:selectableItemBackgroundBorderless"
             android:src="@drawable/ic_back"
-            app:tint="@color/color_back_btn" />
+            app:tint="@color/white" />
 
         <TextView
             android:id="@+id/level"
@@ -28,9 +28,9 @@
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:background="@drawable/stars"
-            android:backgroundTint="#9A2804"
+            android:backgroundTint="@color/white"
             android:gravity="center"
-            android:textColor="#8E2606"
+            android:textColor="@color/white"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -48,7 +48,7 @@
             android:layout_gravity="end|center"
             android:layout_marginEnd="50dp"
             android:fontFamily="@font/my_font2"
-            android:textColor="@color/textColor"
+            android:textColor="@color/white"
             android:textSize="20sp" />
 
     </FrameLayout>
@@ -69,34 +69,55 @@
             tools:ignore="NestedWeights">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/background_img"
                 android:gravity="center">
 
-                <ImageView
-                    android:id="@+id/imgQuestion1"
-                    android:layout_width="140dp"
-                    android:layout_height="100dp"
-                    android:adjustViewBounds="true" />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerCrop"
+                    app:cardCornerRadius="16dp">
+
+                    <ImageView
+                        android:id="@+id/imgQuestion1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/hongkong" />
+
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/background_img"
                 android:gravity="center">
 
-                <ImageView
-                    android:id="@+id/imgQuestion2"
-                    android:layout_width="140dp"
-                    android:layout_height="100dp"
-                    android:adjustViewBounds="true" />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerCrop"
+                    app:cardCornerRadius="16dp">
 
+                    <ImageView
+                        android:id="@+id/imgQuestion2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/hongkong" />
+
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
         </LinearLayout>
@@ -109,35 +130,55 @@
             android:gravity="center">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/background_img"
                 android:gravity="center">
 
-                <ImageView
-                    android:id="@+id/imgQuestion3"
-                    android:layout_width="140dp"
-                    android:layout_height="100dp"
-                    android:adjustViewBounds="true" />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerCrop"
+                    app:cardCornerRadius="16dp">
 
+                    <ImageView
+                        android:id="@+id/imgQuestion3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/hongkong" />
+
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/background_img"
                 android:gravity="center">
 
-                <ImageView
-                    android:id="@+id/imgQuestion4"
-                    android:layout_width="140dp"
-                    android:layout_height="100dp"
-                    android:adjustViewBounds="true" />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerCrop"
+                    app:cardCornerRadius="16dp">
 
+                    <ImageView
+                        android:id="@+id/imgQuestion4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/hongkong" />
+
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
         </LinearLayout>
@@ -154,29 +195,67 @@
         <LinearLayout
             android:id="@+id/linerAnswers"
             android:layout_width="match_parent"
-            android:layout_height="91dp"
+            android:layout_height="80dp"
             android:layout_marginTop="20dp"
             android:gravity="center|bottom"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer" />
+            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer"
+                android:textColor="@color/white"/>
 
-            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer" />
+            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer"
+                android:textColor="@color/white"/>
 
-            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer" />
+            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer"
+                android:textColor="@color/white"/>
 
-            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer" />
+            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer"
+                android:textColor="@color/white"/>
 
-            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer" />
+            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer"
+                android:textColor="@color/white"/>
 
-            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer" />
+            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer"
+                android:textColor="@color/white"/>
 
-            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer" />
+            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer"
+                android:textColor="@color/white"/>
 
-            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer" />
+            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer"
+                android:textColor="@color/white"/>
 
-            <androidx.appcompat.widget.AppCompatButton style="@style/Button.Answer" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/help"
+                android:layout_width="60dp"
+                android:layout_height="55dp"
+                android:background="@drawable/bg_btn"
+                android:paddingHorizontal="4dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/icon_info"
+                app:tint="@color/white" />
+
+            <Space
+                android:layout_width="64dp"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/restart"
+                android:layout_width="60dp"
+                android:layout_height="55dp"
+                android:background="@drawable/bg_btn"
+                android:padding="8dp"
+                android:src="@drawable/ic_clear"
+                app:tint="@color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -225,34 +304,5 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="center">
-
-            <ImageView
-                android:id="@+id/help"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:background="@drawable/bg_back"
-                android:paddingHorizontal="4dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="6dp"
-                android:src="@drawable/icon_info" />
-
-            <Space
-                android:layout_width="64dp"
-                android:layout_height="wrap_content" />
-
-            <ImageView
-                android:id="@+id/restart"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:background="@drawable/bg_delete"
-                android:padding="6dp"
-                android:src="@drawable/ic_delete"
-                app:tint="#E41809" />
-        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
